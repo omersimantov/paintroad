@@ -3,7 +3,8 @@ class V1::PaintingsController < ApplicationController
 
   # GET /paintings
   def index
-    @paintings = Painting.all
+    # Get all paintings ordered by created_at descending
+    @paintings = Painting.order(created_at: :desc)
 
     render json: @paintings
   end
@@ -18,7 +19,7 @@ class V1::PaintingsController < ApplicationController
     @painting = Painting.new(painting_params)
 
     if @painting.save
-      render json: @painting, status: :created, location: @painting
+      render json: @painting, status: :created, location: v1_painting_url(@painting)
     else
       render json: @painting.errors, status: :unprocessable_entity
     end
