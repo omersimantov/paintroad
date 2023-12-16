@@ -1,5 +1,5 @@
 import { Spinner } from "@/components/ui/Spinner";
-import { cn, uploadImageToS3 } from "@/lib/utils";
+import { cn, uploadToCloudinary } from "@/lib/utils";
 import React, { useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { useForm } from "react-hook-form";
@@ -38,7 +38,7 @@ export const NewPaintingForm: React.FC = () => {
     setLoading(true);
     try {
       // Get the image URL from S3 after uploading
-      const url = await uploadImageToS3(imageFile);
+      const url = await uploadToCloudinary(imageFile);
       data.image_url = url;
       // Send the data to the API
       const res = await fetch(`${import.meta.env.VITE_API_URL}/paintings`, {
