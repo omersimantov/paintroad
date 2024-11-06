@@ -170,7 +170,7 @@ export const NewPaintingForm: React.FC = () => {
         required
       />
       <label htmlFor="price" className="!mt-4">
-        Price *
+        Price (USD)*
       </label>
       <input
         id="price"

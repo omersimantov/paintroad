@@ -61,7 +61,7 @@
 
   button,
   .button {
-    @apply flex h-12 w-full shrink-0 cursor-pointer items-center justify-center rounded border bg-dark text-sm font-medium text-white no-underline transition-none;
+    @apply flex h-11 w-full shrink-0 cursor-pointer items-center justify-center rounded border bg-dark text-sm font-medium text-white no-underline transition-none;
   }
 
   svg {
@@ -98,7 +98,7 @@
 [multiple],
 textarea,
 select {
-  @apply flex h-12 max-h-full w-full resize-none items-center rounded border border-border bg-transparent px-4 text-sm text-dark placeholder-main/50 focus:border-border focus:ring-transparent;
+  @apply flex h-11 max-h-full w-full resize-none items-center rounded border border-border bg-transparent px-4 text-sm text-dark placeholder-main/50 focus:border-border focus:ring-transparent;
 }
 
 textarea {
