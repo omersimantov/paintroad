@@ -4,17 +4,17 @@
 
 @layer base {
   * {
-    @apply border-border decoration-border outline-none selection:bg-light/20 selection:text-dark;
+    @apply scrollbar-none overscroll-y-none border-border !outline-none !ring-0;
     -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
   }
 
   html {
-    @apply scrollbar-hidden overflow-x-hidden overscroll-y-none;
+    @apply overflow-x-hidden overscroll-y-none;
   }
 
   body {
-    @apply overscroll-y-none bg-white !leading-[30px] tracking-tight text-main antialiased;
+    @apply overscroll-y-none bg-white !leading-7 !tracking-tight text-main antialiased selection:bg-main/10 selection:text-dark;
   }
 
   a,
@@ -61,7 +61,7 @@
 
   button,
   .button {
-    @apply flex h-11 w-full shrink-0 cursor-pointer items-center justify-center rounded border bg-dark text-sm font-medium text-white no-underline transition-none;
+    @apply flex h-10 w-full shrink-0 cursor-pointer items-center justify-center rounded border bg-dark text-sm font-medium text-white no-underline transition-none;
   }
 
   svg {
@@ -98,11 +98,11 @@
 [multiple],
 textarea,
 select {
-  @apply flex h-11 max-h-full w-full resize-none items-center rounded border border-border bg-transparent px-4 text-sm text-dark placeholder-main/50 focus:border-border focus:ring-transparent;
+  @apply flex h-10 max-h-full w-full resize-none items-center rounded border border-border bg-transparent px-3 text-sm text-dark placeholder-main/50 focus:border-border focus:ring-transparent;
 }
 
 textarea {
-  @apply min-h-[200px] py-3;
+  @apply min-h-[200px] py-2;
 }
 
 [type="checkbox"] {
@@ -123,13 +123,13 @@ code {
 }
 
 /* For IE, Edge and Firefox */
-.scrollbar-hidden {
+.scrollbar-none {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
-.scrollbar-hidden::-webkit-scrollbar {
+.scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 

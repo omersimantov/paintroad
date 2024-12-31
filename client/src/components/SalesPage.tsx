@@ -48,7 +48,7 @@ export const SalesPage: React.FC = () => {
             Purchase
           </a>
           {painting?.description && (
-            <p className="!my-5 leading-[1.75]">{painting?.description}</p>
+            <p className="!my-5">{painting?.description}</p>
           )}
         </div>
       </div>
