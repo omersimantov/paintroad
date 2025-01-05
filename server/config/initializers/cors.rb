@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://paintroad.vercel.app"
+    origins "paintrd.up.railway.app"
 
     resource "*",
       headers: :any,
