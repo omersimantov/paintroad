@@ -133,19 +133,19 @@ code {
   display: none;
 }
 
-.my-masonry-grid {
+.masonry {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: -20px;
   width: auto;
 }
-.my-masonry-grid_column {
+.masonry_column {
   padding-left: 20px;
   background-clip: padding-box;
 }
 
-.my-masonry-grid_column > div {
+.masonry_column > div {
   margin-bottom: 20px;
 }
 
