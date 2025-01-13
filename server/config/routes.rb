@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # v1 API routes
   namespace :v1 do
     resources :paintings
+    post 'uploads', to: 'uploads#create'
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

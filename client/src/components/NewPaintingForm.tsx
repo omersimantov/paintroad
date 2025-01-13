@@ -1,5 +1,5 @@
 import { Spinner } from "@/components/ui/Spinner";
-import { cn, uploadToCloudinary } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import React, { useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { useForm } from "react-hook-form";
@@ -37,10 +37,17 @@ export const NewPaintingForm: React.FC = () => {
     if (!validationSchema.safeParse(data).success) return;
     setLoading(true);
     try {
-      // Get the image URL from S3 after uploading
-      const url = await uploadToCloudinary(imageFile);
+      // Upload the image to S3
+      const formData = new FormData();
+      formData.append("file", imageFile);
+      const s3Res = await fetch(`${import.meta.env.VITE_API_URL}/uploads`, {
+        method: "POST",
+        body: formData,
+      });
+      // Get the object URL from the response
+      const { url } = await s3Res.json();
       data.image_url = url;
-      // Send the data to the API
+      // Create a new painting
       const res = await fetch(`${import.meta.env.VITE_API_URL}/paintings`, {
         method: "POST",
         headers: {
