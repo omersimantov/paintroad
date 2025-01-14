@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:
-      - "7432:7432"
+      - "7432:5432"
     networks:
       - paintroad-network
 
@@ -16,7 +16,7 @@ services:
     container_name: paintroad-api
     build: .
     ports:
-      - "7000:7000"
+      - "7000:3000"
     environment:
       DATABASE_URL: ${DATABASE_URL}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
