@@ -8,8 +8,6 @@ services:
       POSTGRES_DB: postgres
     ports:
       - "7432:5432"
-    networks:
-      - paintroad-network
 
   api:
     image: paintroad-api
@@ -24,9 +22,3 @@ services:
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
     depends_on:
       - db
-    networks:
-      - paintroad-network
-
-networks:
-  paintroad-network:
-    driver: bridge
