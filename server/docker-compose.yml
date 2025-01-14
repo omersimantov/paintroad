@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: paintroad-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "7432:5432"
+    networks:
+      - paintroad-network
+
+  api:
+    image: paintroad-api
+    container_name: paintroad-api
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - db
+    networks:
+      - paintroad-network
+
+networks:
+  paintroad-network:
+    driver: bridge
